@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"runtime/debug"
+
+	_ "github.com/pkg/errors"
 )
 
 func main() {
