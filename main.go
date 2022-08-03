@@ -15,8 +15,12 @@ func main() {
 	if !ok {
 		log.Fatalln("can't get BuildInfo")
 	}
-	fmt.Printf("Main = %s\n", info.Main.Version)
+	fmt.Printf("Main = %s (%s)\n", info.Main.Version, info.Main.Sum)
 	for _, m := range info.Deps {
-		fmt.Printf("Deps[%s] = %+v\n", m.Path, m.Version)
+		fmt.Printf("Deps[%s] = %s (%s)\n", m.Path, m.Version, m.Sum)
+	}
+	fmt.Println("Settings:")
+	for _, s := range info.Settings {
+		fmt.Printf("\t%s=%s\n", s.Key, s.Value)
 	}
 }
